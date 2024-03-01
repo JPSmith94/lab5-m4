@@ -10,6 +10,7 @@ pipeline {
                 sh 'docker stop mynginx || true'
                 sh 'docker rm mynginx || true'
             }
+        }
         stage('build'){
             steps{
                 sh 'docker run -d -p 80:80 --name mynginx nginx:latest'
@@ -22,7 +23,6 @@ pipeline {
                 sh "docker tag nginx:latest jakepaulsmith/mynginx1:latest"
                 sh "docker push jakepaulsmith/mynginx1:latest"
             }
-        }
         }
     }
 }
