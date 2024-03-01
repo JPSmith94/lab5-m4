@@ -20,7 +20,7 @@ pipeline {
         stage('push'){
             steps{
                 sh "echo \$DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password -stdin"
-                sh "docker tag nginx:latest jakepaulsmith/mynginx1:latest"
+                sh "docker tag nginx jakepaulsmith/mynginx1:latest"
                 sh "docker push jakepaulsmith/mynginx1:latest"
             }
         }
